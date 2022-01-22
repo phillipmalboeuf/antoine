@@ -9,13 +9,12 @@
   --s5: 5rem;
 
   --gutter: 2vw;
-  --margins: var(--s3);
 
   --dark: black;
   --light: white;
-  --muted: rgba(66, 69, 80, 0.66);
-  --mutedlight: rgba(66, 69, 80, 0.33);
-  --highlight: red;
+  --muted: rgba(66, 69, 88, 0.66);
+  --mutedlight: rgba(66, 69, 88, 0.33);
+  --highlight: black;
   --alt: #C9C6B7;
 }
 
@@ -24,24 +23,6 @@
     --gutter: 2vh;
   }
 }
-
-/* @media (max-width: 1200px) {
-  :root {
-    --margins: var(--s2);
-  }
-}
-
-@media (max-width: 888px) {
-  :root {
-    --gutter: var(--s0);
-    --margins: var(--s1);
-
-    --s2: 1.66rem;
-    --s3: 2.25rem;
-    --s4: 3rem;
-    --s5: 4rem;
-  }
-} */
 
 * {
 	box-sizing: border-box;
