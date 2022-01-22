@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-vercel": "next",
     "@sveltejs/kit": "next",
     "node-sass": "^7.0.1",
     "sass": "^1.49.0",
