@@ -33,6 +33,8 @@
     {#if entry.fields.titre}<h2>{entry.fields.titre}</h2>{/if}
   </div>
 
+  <div class="spacer" />
+
   {#key visible}
   {#each entry.fields.photos as media, index}
   <figure style="margin-left: {Math.random()*66}vw;">
@@ -52,6 +54,10 @@
     cursor: pointer;
     width: 33vw;
     margin-bottom: calc(var(--gutter) * 2);
+  }
+
+  .spacer {
+    height: 100vh;
   }
 
   .content {
