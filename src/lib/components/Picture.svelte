@@ -13,6 +13,7 @@
   video,
   audio {
     display: block;
+    width: 100%;
   }
 
   small {

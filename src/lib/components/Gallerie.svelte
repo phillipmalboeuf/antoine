@@ -1,9 +1,8 @@
 <script lang="ts">
   import { fade, fly } from 'svelte/transition'
+  import { onMount } from 'svelte'
   import type { Asset, Entry, RichTextContent } from 'contentful'
   import Picture from './Picture.svelte'
-  // import Slider from './Slider.svelte'
-  // import I from '../icons/I.svelte'
 
   export let entry: Entry<{
     titre: string
@@ -11,94 +10,65 @@
     photos: Asset[]
   }>
 
-  // let showSlider: number = undefined
+  export let visible = false
+  let element: HTMLElement
 
-  // function show(index: number) {
-  //   showSlider = index
-  //   document.documentElement.classList.toggle('noscroll')
-  // }
+  onMount(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(node => {
+          visible = node.isIntersecting
+        })
+      }
+    )
 
-  // function hide() {
-  //   showSlider = undefined
-  //   document.documentElement.classList.remove('noscroll')
-  // }
+    observer.observe(element)
+
+    return () => observer.disconnect()
+  })
 </script>
 
-<section id={entry.fields.id}>
-  {#if entry.fields.titre}<h5>{entry.fields.titre}</h5>{/if}
+<section bind:this={element} id={entry.fields.id}>
+  <div class:visible class="content">
+    {#if entry.fields.titre}<h2>{entry.fields.titre}</h2>{/if}
+  </div>
 
+  {#key visible}
   {#each entry.fields.photos as media, index}
-  <figure>
+  <figure style="margin-left: {Math.random()*66}vw;">
     <Picture {media} small={entry.fields.photos.length > 3} />
   </figure>
   {/each}
+  {/key}
 </section>
 
-<!-- {#if showSlider != undefined}
-<aside transition:fade>
-  <button on:click={hide} />
-  <button class="close" on:click={hide}>Fermer <I i='close' /></button>
-  <div transition:fly={{ y: 100 }}>
-    <Slider initialPageIndex={showSlider} slider={{ fields: {
-      // @ts-ignore
-      slides: gallerie.fields.photos.map(media => ({
-        fields: {
-          media
-        }
-      }))
-    } }} />
-  </div>
-</aside>
-{/if} -->
 
 <style lang="scss">
-  figure {
-    cursor: pointer;
-    margin-bottom: var(--s1);
+  section {
+    padding: calc(var(--gutter) * 2);
   }
 
-  // aside {
-  //   position: fixed;
-  //   z-index: 88;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100vw;
-  //   height: 100vh;
-  //   overflow-y: auto;
-  //   padding: var(--margins);
-  //   background-color: var(--mutedlight);
+  figure {
+    cursor: pointer;
+    width: 33vw;
+    margin-bottom: calc(var(--gutter) * 2);
+  }
 
-  //   button {
-  //     position: absolute;
-  //     top: 0;
-  //     right: 0;
-  //     width: 100vw;
-  //     height: 100vh;
-  //     background: transparent;
-  //     border: none;
+  .content {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: calc(var(--gutter) * 2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  //     &.close {
-  //       font-size: 1em;
-  //       top: var(--s5);
-  //       z-index: 2;
-  //       right: 0.5em;
-  //       // background-color: white;
-  //       width: auto;
-  //       height: auto;
-  //     }
-  //   }
-  // }
+    visibility: hidden;
 
-  // figure :global(img) {
-  //   height: 25vw;
-  //   object-fit: cover;
-  // }
-
-  // section.Moyen figure :global(img) {
-  //   height: 50vw;
-  // }
-
-  // section.Grand figure :global(img) {
-  //   height: 75vw;
-  // }
+    &.visible {
+      visibility: visible;
+    }
+  }
 </style>

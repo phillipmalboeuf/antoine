@@ -13,16 +13,14 @@
     type: string
   }>
 
-  let visible = false
+  export let visible = false
   let element: HTMLElement
 
   onMount(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(node => {
-          console.log(node)
           visible = node.isIntersecting
-          // console.log(node.isIntersecting, node.target)
         })
       }
     )
@@ -52,11 +50,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    opacity: 0;
     background-color: white;
 
+    visibility: hidden;
+
     &.visible { 
-      opacity: 1;
+      visibility: visible;
     }
 
     &.gros_espace {

@@ -91,17 +91,12 @@ a {
     outline: 1px solid var(--highlight);
   }
 
-h1, .h1 {
+h1, .h1,
+h2, .h2 {
   font-size: 6.66vw;
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  margin: 0 0 var(--s4);
-}
-
-h2, .h2 {
-  font-size: 5.5vw;
-  font-weight: normal;
   margin: 0 0 var(--s4);
 }
 

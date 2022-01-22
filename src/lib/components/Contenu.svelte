@@ -7,11 +7,11 @@
 </script>
 
 
-{#each contenu as entry}
+{#each contenu as entry, i}
 {#if entry.sys.contentType.sys.id === 'text'}
-<Text {entry} />
+<Text {entry} visible={i === 0} />
 {:else if entry.sys.contentType.sys.id === 'gallerie'}
-<Gallerie {entry} />
+<Gallerie {entry} visible={i === 0} />
 {/if}
 {/each}
 
