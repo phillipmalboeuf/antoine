@@ -71,7 +71,7 @@
     }
 
     &.gros_centre {
-      text-align: center;
+      text-align: justify;
       justify-content: center;
 
       :global(p) {
