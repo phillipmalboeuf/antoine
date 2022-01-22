@@ -14,8 +14,8 @@
   --light: white;
   --muted: rgba(66, 69, 88, 0.66);
   --mutedlight: rgba(66, 69, 88, 0.33);
-  --highlight: black;
-  --alt: #C9C6B7;
+  --highlight: currentColor;
+  --alt: red;
 }
 
 @media (max-width: 888px) {
