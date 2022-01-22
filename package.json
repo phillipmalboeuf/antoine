@@ -1,0 +1,28 @@
+{
+  "name": "antoine",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev --open",
+    "build": "svelte-kit build",
+    "package": "svelte-kit package",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "next",
+    "@sveltejs/kit": "next",
+    "node-sass": "^7.0.1",
+    "sass": "^1.49.0",
+    "svelte": "^3.44.0",
+    "svelte-check": "^2.2.6",
+    "svelte-preprocess": "^4.9.4",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.3"
+  },
+  "type": "module",
+  "dependencies": {
+    "contentful": "^9.1.5",
+    "json-complete": "^2.0.1"
+  }
+}
