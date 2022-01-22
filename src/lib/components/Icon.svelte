@@ -23,6 +23,11 @@
   svg {
     width: 33vw;
     height: 33vw;
+
+    @media (max-width: 888px) {
+      width: 66vw;
+      height: 66vw;
+    }
   }
 
   polygon,

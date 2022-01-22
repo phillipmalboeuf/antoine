@@ -73,6 +73,10 @@ import Document from './document/Document.svelte'
       background: transparent;
       border: none;
       margin: -11.5vw;
+
+      @media (max-width: 888px) {
+        margin: -26.33vw;
+      }
     }
 
     &.visible,

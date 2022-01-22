@@ -19,6 +19,12 @@
   --alt: #C9C6B7;
 }
 
+@media (max-width: 888px) {
+  :root {
+    --gutter: 2vh;
+  }
+}
+
 /* @media (max-width: 1200px) {
   :root {
     --margins: var(--s2);
