@@ -42,6 +42,7 @@
   <a href="{media.fields.file.url}" target="_blank">
     <figure style="margin-left: {Math.random()*66}%;">
       <Picture {media} small={entry.fields.photos.length > 3} />
+      <figcaption>{#if media.fields.description}<h6>{media.fields.description.replace(' / ', '\n')}</h6>{/if}</figcaption>
     </figure>
   </a>
   {/each}
@@ -62,6 +63,17 @@
 
   a:nth-child(3n) figure {
     z-index: -1;
+  }
+
+  figcaption {
+    opacity: 0;
+    transition: opacity 666ms;
+    margin-top: calc(var(--gutter) / 2);
+  }
+
+  a:hover figcaption,
+  a:focus figcaption {
+    opacity: 1;
   }
 
   .spacer {

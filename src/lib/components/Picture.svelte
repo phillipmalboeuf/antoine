@@ -42,9 +42,9 @@
 <!-- svelte-ignore a11y-media-has-caption -->
 <video src="{media.fields.file.url}" controls />
 {:else if media.fields.file.contentType.startsWith('audio/')}
-{#if !noDescription && media.fields.description}
+<!-- {#if !noDescription && media.fields.description}
 <small>{media.fields.description}</small>
-{/if}
+{/if} -->
 <!-- svelte-ignore a11y-media-has-caption -->
 <audio src="{media.fields.file.url}" controls />
 {:else}
@@ -65,8 +65,8 @@
   {/if}
 </picture>
 
-{#if !noDescription && media.fields.description}
+<!-- {#if !noDescription && media.fields.description}
 <small>{media.fields.description}</small>
-{/if}
+{/if} -->
 {/if}
 
