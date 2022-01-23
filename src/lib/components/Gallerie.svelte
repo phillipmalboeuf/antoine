@@ -60,6 +60,10 @@
     margin-bottom: calc(var(--gutter) * 2);
   }
 
+  a:nth-child(3n) figure {
+    z-index: -1;
+  }
+
   .spacer {
     height: 100vh;
   }
@@ -87,10 +91,6 @@
       margin: 0 auto;
       text-align: center;
       text-transform: uppercase;
-    }
-
-    :global(*) {
-      pointer-events: all;
     }
   }
 </style>

@@ -97,6 +97,10 @@
     margin-bottom: calc(var(--gutter) * 1);
   }
 
+  a:nth-child(3n) figure {
+    z-index: -1;
+  }
+
   figcaption {
     opacity: 0;
     transition: opacity 666ms;
@@ -122,6 +126,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    pointer-events: none;
 
     visibility: hidden;
 
