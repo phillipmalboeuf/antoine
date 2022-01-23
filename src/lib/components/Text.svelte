@@ -14,6 +14,7 @@
   }>
 
   export let visible = false
+  export let root: HTMLElement = undefined
   let element: HTMLElement
 
   onMount(() => {
@@ -22,7 +23,8 @@
         entries.forEach(node => {
           visible = node.isIntersecting
         })
-      }
+      },
+      { root }
     )
 
     observer.observe(element)
@@ -44,15 +46,25 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
     padding: var(--gutter);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: white;
+    // background-color: white;
+    pointer-events: none;
+
+    :global(*) {
+      pointer-events: all;
+    }
 
     visibility: hidden;
+
+    :global(.popup) & {
+      padding: calc(var(--gutter) * 3) calc(var(--gutter) * 2);
+    }
 
     &.visible { 
       visibility: visible;
@@ -102,7 +114,7 @@
   }
 
   figure {
-    z-index: 1;
+    z-index: 2;
   }
 
   figure :global(img) {

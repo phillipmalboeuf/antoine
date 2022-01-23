@@ -24,7 +24,7 @@ import Document from './document/Document.svelte'
 
 		scrolledObserver.observe(footer)
 
-    document.getElementById('main').addEventListener('click', () => visible = false, { passive: true, capture: false })
+    // document.getElementById('main').addEventListener('click', () => visible = false, { passive: true, capture: false })
 	})
 
   function toggle() {
@@ -72,11 +72,7 @@ import Document from './document/Document.svelte'
       right: 0;
       background: transparent;
       border: none;
-      margin: -11.5vw;
-
-      @media (max-width: 888px) {
-        margin: -26.33vw;
-      }
+      margin: 2vw;
     }
 
     &.visible,

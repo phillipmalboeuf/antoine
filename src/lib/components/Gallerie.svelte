@@ -11,6 +11,7 @@
   }>
 
   export let visible = false
+  export let root: HTMLElement = undefined
   let element: HTMLElement
 
   onMount(() => {
@@ -19,7 +20,8 @@
         entries.forEach(node => {
           visible = node.isIntersecting
         })
-      }
+      },
+      { root }
     )
 
     observer.observe(element)
@@ -30,16 +32,18 @@
 
 <section bind:this={element} id={entry.fields.id}>
   <div class:visible class="content">
-    {#if entry.fields.titre}<h2>{entry.fields.titre}</h2>{/if}
+    {#if entry.fields.titre}<p>{entry.fields.titre}</p>{/if}
   </div>
 
   <div class="spacer" />
 
   {#key visible}
   {#each entry.fields.photos as media, index}
-  <figure style="margin-left: {Math.random()*66}vw;">
-    <Picture {media} small={entry.fields.photos.length > 3} />
-  </figure>
+  <a href="{media.fields.file.url}" target="_blank">
+    <figure style="margin-left: {Math.random()*66}%;">
+      <Picture {media} small={entry.fields.photos.length > 3} />
+    </figure>
+  </a>
   {/each}
   {/key}
 </section>
@@ -66,7 +70,8 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: calc(var(--gutter) * 2);
+    padding: calc(var(--gutter) * 2) calc(var(--gutter) * 3);
+    pointer-events: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -75,6 +80,17 @@
 
     &.visible {
       visibility: visible;
+    }
+
+    p {
+      max-width: 66rem;
+      margin: 0 auto;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    :global(*) {
+      pointer-events: all;
     }
   }
 </style>
