@@ -84,6 +84,7 @@
 
     &.gros_centre {
       text-align: justify;
+      text-align-last: justify;
       justify-content: center;
 
       :global(p) {
@@ -92,6 +93,13 @@
         font-weight: bold;
         text-transform: uppercase;
         margin: 0;
+
+        &:after {
+          content: "";
+          display: inline-block;
+          width: 100%;
+          height: 0px;
+        }
       }
     }
 
