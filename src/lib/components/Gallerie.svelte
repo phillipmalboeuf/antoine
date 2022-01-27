@@ -61,6 +61,12 @@
     margin-bottom: calc(var(--gutter) * 2);
   }
 
+  @media (max-width: 888px) {
+    figure {
+      width: 40vw;
+    }
+  }
+
   a:nth-child(3n) figure {
     z-index: -1;
   }

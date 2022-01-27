@@ -102,6 +102,12 @@
     margin-bottom: calc(var(--gutter) * 1);
   }
 
+  @media (max-width: 888px) {
+    figure {
+      width: 40vw;
+    }
+  }
+
   a:nth-child(3n) figure :global(img),
   a:nth-child(3n) figure :global(video) {
     position: relative;
