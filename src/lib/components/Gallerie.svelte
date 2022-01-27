@@ -41,7 +41,7 @@
   {#each entry.fields.photos as media, index}
   <a href="{media.fields.file.url}" target="_blank">
     <figure style="margin-left: {Math.random()*66}%">
-      <Picture {media} small={entry.fields.photos.length > 3} />
+      <Picture {media} small={entry.fields.photos.length > 3} ar={9/16} />
       <figcaption>{#if media.fields.description}<h6>{media.fields.description.replace(' / ', '\n')}</h6>{/if}</figcaption>
     </figure>
   </a>

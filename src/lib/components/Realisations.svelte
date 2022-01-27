@@ -63,7 +63,7 @@
     show(index)
   }}>
     <figure style="left: {Math.random()*66}%;">
-      <Picture media={realisation.fields.photo} small={entry.fields.realisations.length > 3} />
+      <Picture media={realisation.fields.photo} ar={9/16} small={entry.fields.realisations.length > 3} />
       <figcaption><h6>{realisation.fields.titre.replace(' / ', '\n')}</h6></figcaption>
     </figure>
   </a>
