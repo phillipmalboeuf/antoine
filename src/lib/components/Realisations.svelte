@@ -62,7 +62,7 @@
     e.preventDefault()
     show(index)
   }}>
-    <figure style="margin-left: {Math.random()*66}vw;">
+    <figure style="left: {Math.random()*66}%;">
       <Picture media={realisation.fields.photo} small={entry.fields.realisations.length > 3} />
       <figcaption><h6>{realisation.fields.titre.replace(' / ', '\n')}</h6></figcaption>
     </figure>
@@ -91,13 +91,20 @@
     padding: calc(var(--gutter) * 2);
   }
 
+  a {
+    pointer-events: none;
+  }
+
   figure {
     // cursor: pointer;
+    pointer-events: auto;
     width: 33vw;
     margin-bottom: calc(var(--gutter) * 1);
   }
 
-  a:nth-child(3n) figure {
+  a:nth-child(3n) figure :global(img),
+  a:nth-child(3n) figure :global(video) {
+    position: relative;
     z-index: -1;
   }
 
@@ -122,7 +129,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: calc(var(--gutter) * 2);
+    padding: var(--gutter);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -132,6 +139,24 @@
 
     &.visible {
       visibility: visible;
+    }
+    
+    :global(p),
+    > h2 {
+      font-size: var(--huge);
+      line-height: 1;
+      font-weight: bold;
+      text-align: justify;
+      text-align-last: justify;
+      text-transform: uppercase;
+      margin: 0;
+
+      &:after {
+        content: "";
+        display: inline-block;
+        width: 100%;
+        height: 0px;
+      }
     }
   }
 
@@ -143,7 +168,7 @@
     width: 100vw;
     height: 100vh;
     overflow-y: auto;
-    padding: calc(var(--gutter) * 2);
+    padding: var(--gutter);
     background-color: var(--muted);
     
     button {
@@ -159,8 +184,8 @@
       &.close {
         font-size: 1em;
         z-index: 5;
-        top: max(3vw, 3vh);
-        right: max(3vw, 3vh);
+        top: var(--gutter);
+        right: var(--gutter);
         // background-color: white;
         width: auto;
         height: auto;
@@ -172,7 +197,7 @@
       z-index: 4;
       background: white;
       border-radius: 2vw;
-      height: calc(100vh - (var(--gutter) * 4));
+      height: calc(100vh - (var(--gutter) * 2));
       overflow-y: auto;
     }
   }

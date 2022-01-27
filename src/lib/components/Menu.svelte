@@ -72,7 +72,7 @@ import Document from './document/Document.svelte'
       right: 0;
       background: transparent;
       border: none;
-      margin: 2vw;
+      margin: var(--gutter);
     }
 
     &.visible,

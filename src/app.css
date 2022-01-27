@@ -8,7 +8,12 @@
   --s4: 4rem;
   --s5: 5rem;
 
-  --gutter: 2vw;
+  --huge: max(5vw, 5vh);
+  --big: max(4vw, 4vh);
+  --medium: max(3vw, 3vh);
+  --small: max(1.66vw, 1.66vh);
+
+  --gutter: max(3vw, 3vh);
 
   --dark: black;
   --light: white;
@@ -19,7 +24,7 @@
 
 @media (max-width: 888px) {
   :root {
-    --gutter: 2vh;
+    --small: max(2w, 2vh);
   }
 }
 
@@ -79,7 +84,7 @@ a {
 
 h1, .h1,
 h2, .h2 {
-  font-size: 6.66vw;
+  font-size: var(--huge);
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
@@ -88,13 +93,13 @@ h2, .h2 {
 }
 
 h4, .h4 {
-  font-size: 4.2vw;
+  font-size: var(--big);
   font-weight: normal;
   margin: 0 0 var(--s4);
 }
 
 h5, .h5 {
-  font-size: 3.66vw;
+  font-size: var(--medium);
   font-weight: normal;
   margin: 0 0 var(--s2);
 }
@@ -102,14 +107,14 @@ h5, .h5 {
 h6, .h6 {
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 2.33vw;
+  font-size: var(--small);
   line-height: 1.1;
   white-space: pre-line;
   margin: 0 0 var(--s1);
 }
 
 p {
-  font-size: 2.66vw;
+  font-size: var(--small);
   margin: 0 0 var(--s1);
   white-space: pre-line;
 }

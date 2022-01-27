@@ -63,7 +63,7 @@
     visibility: hidden;
 
     :global(.popup) & {
-      padding: calc(var(--gutter) * 3) calc(var(--gutter) * 2);
+      padding: calc(var(--gutter) * 2) calc(var(--gutter) * 2);
     }
 
     &.visible { 
@@ -74,7 +74,7 @@
       text-align: center;
 
       :global(p) {
-        font-size: 6.66vw;
+        font-size: var(--huge);
         line-height: 1;
         font-weight: bold;
         text-transform: uppercase;
@@ -88,7 +88,7 @@
       justify-content: center;
 
       :global(p) {
-        font-size: 6.66vw;
+        font-size: var(--huge);
         line-height: 1;
         font-weight: bold;
         text-transform: uppercase;
@@ -106,9 +106,12 @@
     &.petit_centre {
       text-align: center;
       justify-content: center;
+      padding: 0 calc(var(--gutter) * 4);
+      // max-width: 60rem;
+      // margin: 0 auto;
 
       :global(p) {
-        font-size: 3.33vw;
+        font-size: var(--small);
         line-height: 1;
         font-weight: normal;
         text-transform: uppercase;
