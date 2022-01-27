@@ -109,6 +109,7 @@
   }
 
   figcaption {
+    text-align: center;
     opacity: 0;
     transition: opacity 666ms;
     margin-top: calc(var(--gutter) / 2);
@@ -184,8 +185,8 @@
       &.close {
         font-size: 1em;
         z-index: 5;
-        top: var(--gutter);
-        right: var(--gutter);
+        top: calc(var(--gutter)*1.1);
+        right: calc(var(--gutter)*1.1);
         // background-color: white;
         width: auto;
         height: auto;

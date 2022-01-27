@@ -66,6 +66,7 @@
   }
 
   figcaption {
+    text-align: center;
     opacity: 0;
     transition: opacity 666ms;
     margin-top: calc(var(--gutter) / 2);

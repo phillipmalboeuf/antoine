@@ -72,13 +72,17 @@ import Document from './document/Document.svelte'
       right: 0;
       background: transparent;
       border: none;
-      margin: var(--gutter);
+      margin: calc(var(--gutter) * 0.75);
     }
 
     &.visible,
     &.scrolled {
       color: white;
     }
+  }
+
+  div {
+    margin-top: 50vh;
   }
 
   footer {

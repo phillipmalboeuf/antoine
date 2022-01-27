@@ -49,7 +49,7 @@
     z-index: 1;
     width: 100%;
     height: 100%;
-    padding: var(--gutter);
+    padding: calc(var(--gutter) * 0.95) var(--gutter);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -63,7 +63,7 @@
     visibility: hidden;
 
     :global(.popup) & {
-      padding: calc(var(--gutter) * 2) calc(var(--gutter) * 2);
+      padding: calc(var(--gutter) * 1.5) calc(var(--gutter) * 1.5);
     }
 
     &.visible { 
@@ -130,7 +130,7 @@
 
   figure :global(img) {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     object-fit: cover;
   }
 </style>
