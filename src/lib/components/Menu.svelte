@@ -82,7 +82,7 @@ import Document from './document/Document.svelte'
   }
 
   div {
-    margin-top: 50vh;
+    // margin-top: 33vh;
   }
 
   footer {
