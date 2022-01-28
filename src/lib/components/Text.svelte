@@ -74,7 +74,7 @@
       text-align: center;
 
       :global(p) {
-        font-size: var(--huge);
+        font-size: calc(var(--huge) * 1.1);
         line-height: 1;
         font-weight: bold;
         text-transform: uppercase;

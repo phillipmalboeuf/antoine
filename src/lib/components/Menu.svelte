@@ -107,6 +107,10 @@ import Document from './document/Document.svelte'
       transform: translateY(-100%);
     }
 
+    h1 {
+      font-size: calc(var(--huge) * 1.1);
+    }
+
     div {
       text-align: center;
       text-transform: uppercase;
