@@ -49,7 +49,7 @@
     z-index: 1;
     width: 100%;
     height: 100%;
-    padding: calc(var(--gutter) * 0.95) var(--gutter);
+    padding: calc(var(--gutter) * 0.8) var(--gutter);
     display: flex;
     flex-direction: column;
     justify-content: space-between;

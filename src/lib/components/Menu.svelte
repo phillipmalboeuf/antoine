@@ -94,7 +94,7 @@ import Document from './document/Document.svelte'
 
     color: white;
     background: black;
-    padding: var(--gutter);
+    padding: calc(var(--gutter) * 0.8) var(--gutter);
 
     display: flex;
     flex-direction: column;
