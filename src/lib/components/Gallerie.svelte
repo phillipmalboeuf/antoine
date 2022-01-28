@@ -72,7 +72,7 @@
 
   @media (max-width: 888px) {
     figure {
-      width: 40vw;
+      width: 50vw;
     }
   }
 
@@ -125,6 +125,10 @@
       margin: 0 auto;
       text-align: center;
       text-transform: uppercase;
+
+      @media (max-width: 888px) {
+        width: 100%;
+      }
     }
   }
 </style>
