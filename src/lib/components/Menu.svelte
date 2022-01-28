@@ -108,7 +108,7 @@ import Document from './document/Document.svelte'
     }
 
     h1 {
-      font-size: calc(var(--huge) * 1.1);
+      font-size: var(--huge);
     }
 
     div {
