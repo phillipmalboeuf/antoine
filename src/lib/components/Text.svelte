@@ -131,5 +131,6 @@
     height: 100vh;
     width: 100%;
     object-fit: cover;
+    background-color: black;
   }
 </style>
