@@ -107,15 +107,14 @@
       text-align: center;
       justify-content: center;
       padding: 0 calc(var(--gutter) * 4);
-      // max-width: 60rem;
-      // margin: 0 auto;
 
       :global(p) {
         font-size: var(--small);
         line-height: 1;
         font-weight: normal;
         text-transform: uppercase;
-        margin: 0;
+        width: 62vw;
+        margin: 0 auto;
       }
     }
   }

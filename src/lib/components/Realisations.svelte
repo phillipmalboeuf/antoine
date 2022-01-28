@@ -5,6 +5,7 @@
   import Picture from './Picture.svelte'
   import Icon from './Icon.svelte'
   import Contenu from './Contenu.svelte'
+  import Gallerie from './Gallerie.svelte'
 
   export let entry: Entry<{
     titre: string
@@ -17,25 +18,9 @@
       contenu: Entry<any>[]
     }>[]
   }>
-
   export let visible = false
-  let element: HTMLElement
+
   let root: HTMLElement
-
-  onMount(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(node => {
-          visible = node.isIntersecting
-        })
-      }
-    )
-
-    observer.observe(element)
-
-    return () => observer.disconnect()
-  })
-
   let active: number = undefined
 
   function show(index: number) {
@@ -49,27 +34,10 @@
   }
 </script>
 
-<section bind:this={element} id={entry.fields.id}>
-  <div class:visible class="content">
-    {#if entry.fields.titre}<h2>{entry.fields.titre}</h2>{/if}
-  </div>
-
-  <div class="spacer" />
-
-  {#key visible}
-  {#each entry.fields.realisations as realisation, index}
-  <a href="#{realisation.fields.id}" on:click={e => {
-    e.preventDefault()
-    show(index)
-  }}>
-    <figure style="left: {Math.random()*66}%;">
-      <Picture media={realisation.fields.photo} ar={9/16} small={entry.fields.realisations.length > 3} />
-      <figcaption><h6>{realisation.fields.titre.replace(' / ', '\n')}</h6></figcaption>
-    </figure>
-  </a>
-  {/each}
-  {/key}
-</section>
+<Gallerie onClick={index => show(index)} photos={entry.fields.realisations.map(realisation => realisation.fields.photo)}
+  captions={entry.fields.realisations.map(realisation => realisation.fields.titre)} {visible}>
+  <h2 slot="content">{entry.fields.titre}</h2>
+</Gallerie>
 
 {#if active !== undefined}
 <article class="popup" transition:fade >
@@ -87,83 +55,20 @@
 
 
 <style lang="scss">
-  section {
-    padding: calc(var(--gutter) * 2);
-  }
+  h2 {
+    font-size: var(--huge);
+    line-height: 1;
+    font-weight: bold;
+    text-align: justify;
+    text-align-last: justify;
+    text-transform: uppercase;
+    margin: 0;
 
-  a {
-    pointer-events: none;
-  }
-
-  figure {
-    // cursor: pointer;
-    pointer-events: auto;
-    width: 33vw;
-    margin-bottom: calc(var(--gutter) * 1);
-  }
-
-  @media (max-width: 888px) {
-    figure {
-      width: 40vw;
-    }
-  }
-
-  a:nth-child(3n) figure :global(img),
-  a:nth-child(3n) figure :global(video) {
-    position: relative;
-    z-index: -1;
-  }
-
-  figcaption {
-    text-align: center;
-    opacity: 0;
-    transition: opacity 666ms;
-    margin-top: calc(var(--gutter) / 2);
-  }
-
-  a:hover figcaption,
-  a:focus figcaption {
-    opacity: 1;
-  }
-
-  .spacer {
-    height: 100vh;
-  }
-
-  .content {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: var(--gutter);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    pointer-events: none;
-
-    visibility: hidden;
-
-    &.visible {
-      visibility: visible;
-    }
-    
-    :global(p),
-    > h2 {
-      font-size: var(--huge);
-      line-height: 1;
-      font-weight: bold;
-      text-align: justify;
-      text-align-last: justify;
-      text-transform: uppercase;
-      margin: 0;
-
-      &:after {
-        content: "";
-        display: inline-block;
-        width: 100%;
-        height: 0px;
-      }
+    &:after {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 0px;
     }
   }
 

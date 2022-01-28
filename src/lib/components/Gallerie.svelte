@@ -4,14 +4,13 @@
   import type { Asset, Entry, RichTextContent } from 'contentful'
   import Picture from './Picture.svelte'
 
-  export let entry: Entry<{
-    titre: string
-    id: string
-    photos: Asset[]
-  }>
+  export let photos: Asset[]
+  export let captions: string[]
 
   export let visible = false
+  export let padded = false
   export let root: HTMLElement = undefined
+  export let onClick: (index: number) => void = () => null
   let element: HTMLElement
 
   onMount(() => {
@@ -30,21 +29,21 @@
   })
 </script>
 
-<section bind:this={element} id={entry.fields.id}>
-  <div class:visible class="content">
-    {#if entry.fields.titre}<p>{entry.fields.titre}</p>{/if}
+<section bind:this={element}>
+  <div class:visible class:padded class="content">
+    <slot name="content" />
   </div>
 
   <div class="spacer" />
 
   {#key visible}
-  {#each entry.fields.photos as media, index}
-  <a href="{media.fields.file.url}" target="_blank">
+  {#each photos as media, index}
+  <button on:click={() => onClick(index)}>
     <figure style="margin-left: {Math.random()*66}%">
-      <Picture {media} small={entry.fields.photos.length > 3} ar={9/16} />
-      <figcaption>{#if media.fields.description}<h6>{media.fields.description.replace(' / ', '\n')}</h6>{/if}</figcaption>
+      <Picture {media} small={photos.length > 3} ar={9/16} />
+      <figcaption>{#if captions[index]}<h6>{captions[index].replace(' / ', '\n')}</h6>{/if}</figcaption>
     </figure>
-  </a>
+  </button>
   {/each}
   {/key}
 </section>
@@ -55,7 +54,17 @@
     padding: calc(var(--gutter) * 2);
   }
 
+  button {
+    display: block;
+    pointer-events: none;
+
+    &:last-child {
+      margin-bottom: 50vh;
+    }
+  }
+
   figure {
+    pointer-events: auto;
     cursor: pointer;
     width: 33vw;
     margin-bottom: calc(var(--gutter) * 2);
@@ -67,7 +76,9 @@
     }
   }
 
-  a:nth-child(3n) figure {
+  button:nth-child(3n) figure :global(img),
+  button:nth-child(3n) figure :global(video) {
+    position: relative;
     z-index: -1;
   }
 
@@ -78,8 +89,8 @@
     margin-top: calc(var(--gutter) / 2);
   }
 
-  a:hover figcaption,
-  a:focus figcaption {
+  button:hover figcaption,
+  button:focus figcaption {
     opacity: 1;
   }
 
@@ -93,11 +104,15 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: calc(var(--gutter) * 2) calc(var(--gutter) * 3);
+    padding: var(--gutter);
     pointer-events: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    &.padded {
+      padding: calc(var(--gutter) * 2) calc(var(--gutter) * 3);
+    }
 
     visibility: hidden;
 
@@ -105,8 +120,8 @@
       visibility: visible;
     }
 
-    p {
-      max-width: 66rem;
+    > :global(p) {
+      width: 62vw;
       margin: 0 auto;
       text-align: center;
       text-transform: uppercase;

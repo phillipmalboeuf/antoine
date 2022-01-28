@@ -13,7 +13,9 @@
 {#if entry.sys.contentType.sys.id === 'text'}
 <Text {entry} visible={i === 0} {root} />
 {:else if entry.sys.contentType.sys.id === 'gallerie'}
-<Gallerie {entry} visible={i === 0} {root} />
+<Gallerie photos={entry.fields.photos} padded captions={entry.fields.photos.map(photo => photo.fields.description)} visible={i === 0} {root}>
+  <p slot="content">{entry.fields.titre}</p>
+</Gallerie>
 {:else if entry.sys.contentType.sys.id === 'realisations'}
 <Realisations {entry} visible={i === 0} />
 {/if}
