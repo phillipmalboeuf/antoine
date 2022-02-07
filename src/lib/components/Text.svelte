@@ -11,6 +11,7 @@
     text: RichTextContent
     photo: Asset
     type: string
+    position: string
   }>
 
   export let visible = false
@@ -37,7 +38,7 @@
   {#if entry.fields.titre}<h6>{entry.fields.titre}</h6>{/if}
   {#if entry.fields.text}<div class:visible class="content {entry.fields.type?.toLowerCase().replace(' ', '_').replace('é', 'e')}"><Document body={entry.fields.text} /></div>{/if}
   <div class="spacer" bind:this={element} />
-  {#if entry.fields.photo}<figure><Picture media={entry.fields.photo} /></figure>{/if}
+  {#if entry.fields.photo}<figure style={entry.fields.position && `--position: ${entry.fields.position};`}><Picture media={entry.fields.photo} /></figure>{/if}
 </section>
 
 
@@ -144,5 +145,6 @@
     width: 100%;
     object-fit: cover;
     background-color: black;
+    object-position: var(--position);
   }
 </style>
