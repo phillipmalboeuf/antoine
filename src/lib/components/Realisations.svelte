@@ -69,6 +69,10 @@
       display: inline-block;
       width: 100%;
       height: 0px;
+
+      @media (max-width: 888px) {
+        display: none;
+      }
     }
   }
 

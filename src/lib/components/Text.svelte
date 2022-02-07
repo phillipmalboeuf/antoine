@@ -99,6 +99,10 @@
           display: inline-block;
           width: 100%;
           height: 0px;
+
+          @media (max-width: 888px) {
+            display: none;
+          }
         }
       }
     }
@@ -108,6 +112,10 @@
       justify-content: center;
       padding: 0 calc(var(--gutter) * 4);
 
+      @media (max-width: 888px) {
+        padding: 0 calc(var(--gutter) * 3);
+      }
+
       :global(p) {
         font-size: var(--small);
         line-height: 1;
@@ -115,6 +123,10 @@
         text-transform: uppercase;
         width: 62vw;
         margin: 0 auto;
+
+        @media (max-width: 888px) {
+          width: 100%;
+        }
       }
     }
   }
