@@ -6,6 +6,7 @@
   import Icon from './Icon.svelte'
   import Contenu from './Contenu.svelte'
   import Gallerie from './Gallerie.svelte'
+import Document from './document/Document.svelte'
 
   export let entry: Entry<{
     titre: string
@@ -16,6 +17,7 @@
       id: string
       photo: Asset
       contenu: Entry<any>[]
+      credits: RichTextContent
     }>[]
   }>
   export let visible = false
@@ -45,8 +47,16 @@
   <button class="close" on:click={hide}><Icon i='close' /></button>
   <div bind:this={root}>
     {#key root}
-    {#if root && entry.fields.realisations[active].fields.contenu}
+    {#if root}
+    {#if entry.fields.realisations[active].fields.contenu}
     <Contenu contenu={entry.fields.realisations[active].fields.contenu} {root} />
+    {/if}
+
+    {#if entry.fields.realisations[active].fields.credits}
+    <footer>
+      <Document body={entry.fields.realisations[active].fields.credits} />
+    </footer>
+    {/if}
     {/if}
     {/key}
   </div>
@@ -115,6 +125,16 @@
       border-radius: 2vw;
       height: calc(100vh - (var(--gutter) * 2));
       overflow-y: auto;
+    }
+
+    footer {
+      padding: var(--gutter);
+      text-align: center;
+      
+      :global(p) {
+        font-size: 0.88em;
+        margin-bottom: 0;
+      }
     }
   }
 </style>
