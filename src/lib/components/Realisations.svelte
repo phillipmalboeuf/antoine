@@ -133,8 +133,7 @@ import Document from './document/Document.svelte'
       text-transform: uppercase;
       
       :global(p) {
-        font-weight: bold;
-        font-size: 0.75em;
+        font-size: 0.66em;
         margin-bottom: 0;
       }
     }
