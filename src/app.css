@@ -117,6 +117,7 @@ p {
   font-size: var(--small);
   margin: 0 0 var(--s1);
   white-space: pre-line;
+  word-wrap: break-word;
 }
 
 p:not(:last-child) {

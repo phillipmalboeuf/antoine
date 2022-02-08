@@ -130,9 +130,11 @@ import Document from './document/Document.svelte'
     footer {
       padding: var(--gutter);
       text-align: center;
+      text-transform: uppercase;
       
       :global(p) {
-        font-size: 0.88em;
+        font-weight: bold;
+        font-size: 0.75em;
         margin-bottom: 0;
       }
     }
