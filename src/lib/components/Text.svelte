@@ -50,7 +50,6 @@
     z-index: 1;
     width: 100%;
     height: 100%;
-    min-height: -webkit-fill-available;
     padding: calc(var(--gutter) * 0.8) var(--gutter);
     display: flex;
     flex-direction: column;
@@ -135,7 +134,7 @@
 
   .spacer {
     height: 100vh;
-    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
   }
 
   figure {
@@ -144,7 +143,7 @@
 
   figure :global(img) {
     height: 100vh;
-    min-height: -webkit-fill-available;
+    height: -webkit-fill-available;
     width: 100%;
     object-fit: cover;
     background-color: black;
