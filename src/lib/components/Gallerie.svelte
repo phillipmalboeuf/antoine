@@ -124,7 +124,6 @@
 
     > :global(p) {
       font-size: var(--small);
-      line-height: 1;
       width: 62vw;
       margin: 0 auto;
       text-align: center;

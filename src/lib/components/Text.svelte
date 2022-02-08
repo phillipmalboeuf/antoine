@@ -119,7 +119,6 @@
 
       :global(p) {
         font-size: var(--small);
-        line-height: 1;
         font-weight: normal;
         text-transform: uppercase;
         width: 62vw;
