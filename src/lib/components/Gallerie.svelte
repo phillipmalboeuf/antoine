@@ -40,7 +40,7 @@
   {#each photos as media, index}
   <button on:click={() => onClick(index)}>
     <figure style="margin-left: {Math.random()*66}%">
-      <Picture {media} small={photos.length > 3} ar={9/16} />
+      <Picture {media} small ar={9/16} />
       <figcaption>{#if captions[index]}<h6>{captions[index].replace(' / ', '\n')}</h6>{/if}</figcaption>
     </figure>
   </button>
