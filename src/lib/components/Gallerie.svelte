@@ -89,9 +89,11 @@
     margin-top: calc(var(--gutter) / 2);
   }
 
-  button:hover figcaption,
-  button:focus figcaption {
-    opacity: 1;
+  @media (min-width: 888px) {
+    button:hover figcaption,
+    button:focus figcaption {
+      opacity: 1;
+    }
   }
 
   .spacer {
