@@ -135,6 +135,10 @@ import Document from './document/Document.svelte'
       :global(p) {
         font-size: 0.66em;
         margin-bottom: 0;
+
+        @media (max-width: 888px) {
+          font-size: 0.5em;
+        }
       }
     }
   }
