@@ -133,7 +133,6 @@
 
   .spacer {
     height: 100vh;
-    height: -webkit-fill-available;
   }
 
   figure {
@@ -142,7 +141,6 @@
 
   figure :global(img) {
     height: 100vh;
-    height: -webkit-fill-available;
     width: 100%;
     object-fit: cover;
     background-color: black;
