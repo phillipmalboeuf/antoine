@@ -3,7 +3,7 @@
 
   import { onMount, getContext } from 'svelte'
   import { fade, fly } from 'svelte/transition'
-import Document from './document/Document.svelte'
+  import Document from './document/Document.svelte'
 
   import Icon from './Icon.svelte'
   import type { PageDocument } from './Page.svelte'

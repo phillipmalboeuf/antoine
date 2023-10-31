@@ -36,7 +36,6 @@
 
   <div class="spacer" />
 
-  {#key visible}
   {#each photos as media, index}
   <button on:click={() => onClick(index)}>
     <figure style="margin-left: {Math.random()*66}%">
@@ -45,7 +44,6 @@
     </figure>
   </button>
   {/each}
-  {/key}
 </section>
 
 
